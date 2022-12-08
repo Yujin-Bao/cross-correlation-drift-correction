@@ -6,7 +6,7 @@ Created on Wed Apr 03 14:15:49 2019
 """
 
 from PYME.recipes.base import register_module, ModuleBase, Filter
-from PYME.recipes.traits import Input, Output, Float, Enum, CStr, Bool, Int, List, DictStrStr, DictStrList, ListFloat, ListStr, File
+from PYME.recipes.traits import Input, Output, Float, Enum, CStr, Bool, Int, List, DictStrStr, DictStrList, ListFloat, ListStr, File, Any
 from PYME.recipes.graphing import Plot
 
 import numpy as np
@@ -116,6 +116,8 @@ class RCCDriftCorrection(RCCDriftCorrectionBase):
     binsize = Float(30)
     flatten_z = Bool()
     tukey_size = Float(0.25)
+    _pool = Any()
+    _start_time = Any()
 
     outputName = Output('corrected_localizations')
     

@@ -11,7 +11,7 @@ based off PYME recipes processing.py
 
 
 from PYME.recipes.base import ModuleBase, register_module, Filter
-from PYME.recipes.traits import Input, Output, Float, Enum, CStr, Bool, Int, List, File
+from PYME.recipes.traits import Input, Output, Float, Enum, CStr, Bool, Int, List, File, Any
 from PYME.recipes import processing
 from PYME.recipes.graphing import Plot
 
@@ -525,6 +525,9 @@ class RCCDriftCorrectionBase(CacheCleanupModule):
     
     # if debug_cor_file not blank, filled with imagestack of cross correlation
     output_cross_cor = Output('cross_cor')
+
+    _cc_image = Any()
+    _start_time = Any()
 
     def calc_corr_drift_from_ft_images(self, ft_images):
         n_steps = ft_images.shape[0]
